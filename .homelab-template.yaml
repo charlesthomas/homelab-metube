@@ -1,0 +1,40 @@
+_commit: v1.3.6
+_src_path: /Users/crthomas/code/charlesthomas/homelab-template
+additionalResources: ''
+backups: false
+helm: false
+homepageDescription: YouTube Downloader
+homepageEnabled: true
+homepageGroup: Media
+homepageIcon: metube
+homepageName: MeTube
+ingClass: nginx-crt-house
+ingCname: ''
+ingExtraAnnotations: ''
+ingHost: metube.crt.house
+ingName: metube
+ingPathType: Prefix
+ingSecret: ''
+ingWebSockets: true
+ingress: true
+labels: 'app: metube'
+name: metube
+namespace: metube
+pvc: false
+reloader: true
+resources:
+- deployments.yaml
+- external-secrets.yaml
+- ingresses.yaml
+- services.yaml
+service: true
+serviceAccount: false
+svcName: metube
+svcPortName: metube
+svcPortNum: 8081
+svcProtocol: TCP
+svcSelector: 'app: metube'
+svcTargetPort: metube
+svcType: ClusterIP
+upstreamURL: https://github.com/alexta69/metube
+url: https://github.com/charlesthomas/homelab-metube

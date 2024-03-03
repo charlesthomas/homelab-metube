@@ -1,4 +1,4 @@
-_commit: v1.6.2
+_commit: v1.6.8
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
 backups: false
@@ -14,7 +14,6 @@ ingExtraAnnotations: ''
 ingHost: metube.crt.house
 ingName: metube
 ingPathType: Prefix
-ingSecret: ''
 ingWebSockets: true
 ingress: true
 labels: 'app: metube'

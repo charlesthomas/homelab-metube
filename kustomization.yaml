@@ -25,3 +25,19 @@ patches:
         reloader.stakater.com/auto: "true"
   target:
     kind: Deployment
+- patch: |-
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: metube
+      namespace: metube
+      annotations:
+        gethomepage.dev/href: https://metube.crt.house
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/description: YouTube Downloader
+        gethomepage.dev/group: Media
+        gethomepage.dev/icon: metube
+        gethomepage.dev/name: MeTube
+        gethomepage.dev/pod-selector: ""
+  target:
+    kind: Ingress

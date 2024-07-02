@@ -34,14 +34,16 @@ spec:
         - name: UMASK
           value: "022"
         - name: DOWNLOAD_DIR
-          value: /downloads/youtube/
+          value: /downloads/
+        - name: OUTPUT_TEMPLATE
+          value: "%(playlist_index)s.%(title)s.%(ext)s"
         - name: YTDL_OPTIONS
-          value: "{\"cookiefile\":\"/cookies/cookies.txt\"}"
+          value: "{\"cookiefile\":\"/cookies/cookies.txt\",\"writesubtitles\":true,\"subtitleslangs\":[\"en\",\"-live_chat\"]}"
         volumeMounts:
         - name: cookies
           mountPath: /cookies
         - name: youtube
-          mountPath: /downloads/youtube
+          mountPath: /downloads
         resources:
           limits:
             memory: 700Mi

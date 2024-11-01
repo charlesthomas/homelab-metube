@@ -23,7 +23,6 @@ pvc: false
 reloader: true
 resources:
 - deployments.yaml
-- external-secrets.yaml
 - ingresses.yaml
 - services.yaml
 service: true

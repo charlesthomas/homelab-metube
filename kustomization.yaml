@@ -10,7 +10,6 @@ commonLabels:
 
 resources:
 - resources/deployments.yaml
-- resources/external-secrets.yaml
 - resources/ingresses.yaml
 - resources/namespaces.yaml
 - resources/services.yaml

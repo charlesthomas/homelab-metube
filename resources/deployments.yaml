@@ -34,7 +34,7 @@ spec:
             - name: UMASK
               value: "022"
             - name: DOWNLOAD_DIR
-              value: /downloads/
+              value: /downloads/inbox
             - name: YTDL_OPTIONS
               value: "{\"cookiefile\":\"/downloads/cookies/metube.txt\",\"writesubtitles\":true,\"subtitleslangs\":[\"en\",\"-live_chat\"],\"postprocessors\":[{\"key\":\"FFmpegEmbedSubtitle\",\"already_have_subtitle\":false}]}"
           volumeMounts:

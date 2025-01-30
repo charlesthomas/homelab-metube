@@ -36,7 +36,7 @@ spec:
             - name: DOWNLOAD_DIR
               value: /downloads/inbox
             - name: YTDL_OPTIONS
-              value: "{\"cookiefile\":\"/downloads/cookies/metube.txt\",\"writesubtitles\":true,\"subtitleslangs\":[\"en\",\"-live_chat\"],\"postprocessors\":[{\"key\":\"FFmpegEmbedSubtitle\",\"already_have_subtitle\":false}]}"
+              value: "{\"cookiefile\":\"/downloads/.cookies/metube.txt\",\"writesubtitles\":true,\"subtitleslangs\":[\"en\",\"-live_chat\"],\"postprocessors\":[{\"key\":\"FFmpegEmbedSubtitle\",\"already_have_subtitle\":false}]}"
           volumeMounts:
             - name: youtube
               mountPath: /downloads
@@ -60,7 +60,7 @@ spec:
           command:
             - /bin/sh
             - -c
-            - 'rm /downloads/cookies/metube.txt; cat /downloads/cookies/*.txt > /downloads/cookies/metube.txt'
+            - 'rm /downloads/.cookies/metube.txt; cat /downloads/.cookies/*.txt > /downloads/.cookies/metube.txt'
           image: alpine:latest
           imagePullPolicy: IfNotPresent
           resources: {}

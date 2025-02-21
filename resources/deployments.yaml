@@ -39,7 +39,6 @@ spec:
               value: |
                 {
                   "cookiefile": "/downloads/.cookies/metube.txt",
-                  "mark_watched": true,
                   "writesubtitles": true,
                   "subtitleslangs": [
                     "en",

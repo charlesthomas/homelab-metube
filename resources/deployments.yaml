@@ -52,11 +52,7 @@ spec:
           volumeMounts:
             - name: youtube
               mountPath: /downloads
-          resources:
-            limits:
-              memory: 700Mi
-            requests:
-              memory: 350Mi
+          resources: {}
           readinessProbe:
             tcpSocket:
               port: metube

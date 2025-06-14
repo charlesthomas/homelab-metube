@@ -34,7 +34,7 @@ spec:
             - name: UMASK
               value: "022"
             - name: DOWNLOAD_DIR
-              value: /downloads/inbox
+              value: /downloads
             - name: YTDL_OPTIONS
               value: |
                 {
@@ -48,11 +48,22 @@ spec:
                   "postprocessors": [{
                     "key": "FFmpegEmbedSubtitle",
                     "already_have_subtitle": false
+                  },
+                  {
+                    "key": "Exec",
+                    "exec_cmd": "/refresh/refresh-jellyfin.sh"
                   }]
                 }
+            - name: JELLYFIN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: jellyfin
+                  key: token
           volumeMounts:
             - name: youtube
               mountPath: /downloads
+            - name: refresh
+              mountPath: /refresh
           resources: {}
           readinessProbe:
             tcpSocket:
@@ -77,6 +88,10 @@ spec:
             - name: youtube
               mountPath: /downloads
       volumes:
+        - name: refresh
+          configMap:
+            name: refresh-jellyfin
+            defaultMode: 0555
         - name: youtube
           nfs:
             path: /volume1/media/youtube

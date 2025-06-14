@@ -22,7 +22,9 @@ namespace: metube
 pvc: false
 reloader: true
 resources:
+- configmaps.yaml
 - deployments.yaml
+- external-secrets.yaml
 - ingresses.yaml
 - services.yaml
 service: true

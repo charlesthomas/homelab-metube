@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: refresh-jellyfin
+  namespace: metube
+data:
+  refresh-jellyfin.sh: |-
+    #!/bin/sh
+    curl -s -X POST \
+    -H "Authorization: MediaBrowser Token=\"${JELLYFIN_TOKEN}\"" \
+    'https://dvr.crt.lol/Items/f68da14731a5464eb72ec7a7ad95ac6d/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&RegenerateTrickplay=false&ReplaceAllMetadata=false'

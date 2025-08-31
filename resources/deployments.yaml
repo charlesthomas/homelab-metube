@@ -51,7 +51,7 @@ spec:
                   },
                   {
                     "key": "Exec",
-                    "exec_cmd": "/refresh/refresh-jellyfin.sh"
+                    "exec_cmd": "/refresh/trigger.sh"
                   }]
                 }
             - name: JELLYFIN_TOKEN

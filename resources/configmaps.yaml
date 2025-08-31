@@ -5,8 +5,11 @@ metadata:
   name: refresh-jellyfin
   namespace: metube
 data:
+  trigger.sh: |-
+    /refresh/refresh-jellyfin.sh &
   refresh-jellyfin.sh: |-
     #!/bin/sh
+    sleep 5
     curl -s -X POST \
     -H "Authorization: MediaBrowser Token=\"${JELLYFIN_TOKEN}\"" \
     'https://dvr.crt.lol/Items/f68da14731a5464eb72ec7a7ad95ac6d/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&RegenerateTrickplay=false&ReplaceAllMetadata=false'

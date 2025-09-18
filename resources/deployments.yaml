@@ -52,6 +52,28 @@ spec:
                   {
                     "key": "Exec",
                     "exec_cmd": "/refresh/trigger.sh"
+                  },
+                  {
+                    "key": "SponsorBlock",
+                    "when": "after_filter",
+                    "api": "https://sponsor.ajay.app/",
+                    "categories": [
+                      "sponsor",
+                      "interaction"
+                    ]
+                  },
+                  {
+                    "force_keyframes": false,
+                    "key": "ModifyChapters",
+                    "remove_chapters_patterns": [],
+                    "remove_ranges": [],
+                    "remove_sponsor_segments": ["sponsor","interaction"],
+                    "sponsorblock_chapter_title": "'[SponsorBlock]: ''%(category_names)l'"
+                  },
+                  {
+                    "add_chapters": true,
+                    "add_infojson": "none",
+                    "key": "FFmpegMetadata"
                   }]
                 }
             - name: JELLYFIN_TOKEN

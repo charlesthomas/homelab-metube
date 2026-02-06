@@ -19,7 +19,7 @@ spec:
       dnsPolicy: None
       containers:
         - name: metube
-          image: ghcr.io/alexta69/metube:2026.02.04
+          image: ghcr.io/alexta69/metube:2026.02.06
           imagePullPolicy: IfNotPresent
           ports:
             - name: metube

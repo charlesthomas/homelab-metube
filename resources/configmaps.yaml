@@ -9,6 +9,15 @@ data:
     /refresh/refresh-jellyfin.sh &
   refresh-jellyfin.sh: |-
     #!/bin/sh
+    ROOT=/media
+    CD=$ROOT/tv/Critical_Role_Cooldown_2024/Season2/
+    CR=$ROOT/tv/Critical_Role_2015/Season4/
+    TG=$ROOT/tv/Tale_Gate_2026/Season1
+
+    find ${ROOT}/youtube -name 'Tale\ Gate*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $TG \;
+    find ${ROOT}/youtube -name 'CR\ Cool*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CD \;
+    find ${ROOT}/youtube -name 'C4*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CR \;
+
     sleep 15
     curl -v -X POST \
     -H "Authorization: MediaBrowser Token=\"${JELLYFIN_TOKEN}\"" \

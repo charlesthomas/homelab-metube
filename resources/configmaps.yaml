@@ -10,13 +10,15 @@ data:
   refresh-jellyfin.sh: |-
     #!/bin/sh
     ROOT=/media
-    CD=$ROOT/tv/Critical_Role_Cooldown_2024/Season2/
-    CR=$ROOT/tv/Critical_Role_2015/Season4/
-    TG=$ROOT/tv/Tale_Gate_2026/Season1
+    CD=$ROOT/tv/Critical_Role_Cooldown_\(2024\)/season2/
+    CR=$ROOT/tv/Critical_Role_\(2015\)/season4/
+    DW=$ROOT/tv/Draw_Your_Weapons_\(2026\)/season1/
+    TG=$ROOT/tv/Tale_Gate_\(2026\)/season1/
 
-    find ${ROOT}/youtube -name 'Tale\ Gate*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $TG \;
     find ${ROOT}/youtube -name 'CR\ Cool*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CD \;
     find ${ROOT}/youtube -name 'C4*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CR \;
+    find ${ROOT}/youtube -name 'DYW*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $DW \;
+    find ${ROOT}/youtube -name 'Tale\ Gate*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $TG \;
 
     sleep 15
     curl -v -X POST \

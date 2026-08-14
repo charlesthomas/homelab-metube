@@ -47,6 +47,7 @@ spec:
                   "cookiefile": "/media/youtube/.cookies/metube.txt",
                   "mark_watched": true,
                   "writesubtitles": true,
+                  "writethumbnail": true,
                   "subtitleslangs": [
                     "en",
                     "-live_chat"

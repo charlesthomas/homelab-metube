@@ -5,8 +5,10 @@ namespace: metube
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-metube
-commonLabels:
-  app: metube
+labels:
+- includeSelectors: true
+  pairs:
+    app: metube
 
 resources:
 - resources/configmaps.yaml

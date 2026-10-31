@@ -5,8 +5,10 @@ namespace: metube
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-metube
-commonLabels:
-  app: metube
+labels:
+- includeSelectors: true
+  pairs:
+    app: metube
 
 resources:
 - resources/configmaps.yaml
@@ -42,3 +44,11 @@ patches:
         gethomepage.dev/pod-selector: ""
   target:
     kind: Ingress
+configMapGenerator:
+- name: grafana-dashboard-metube
+  files:
+  - grafana/metube.json
+  options:
+    disableNameSuffixHash: true
+    labels:
+      grafana_dashboard: "1"

@@ -10,15 +10,23 @@ data:
   refresh-jellyfin.sh: |-
     #!/bin/sh
     ROOT=/media
-    CD=$ROOT/tv/Critical_Role_Cooldown_\(2024\)/season2/
-    CR=$ROOT/tv/Critical_Role_\(2015\)/season4/
-    TG=$ROOT/tv/Tale_Gate_\(2026\)/season1/
+    TV=${ROOT}/tv
+    YT=${ROOT}/youtube
 
-    find ${ROOT}/youtube -name '*Cooldown*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CD \;
-    find ${ROOT}/youtube -name 'C4*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CR \;
-    find ${ROOT}/youtube -name 'Tale\ Gate*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $TG \;
+    SUMO=${YT}/NA
+    CD=$TV/Critical_Role_Cooldown_\(2024\)/season2/
+    CR=$TV/Critical_Role_\(2015\)/season4/
+    DW=$TV/Draw_Your_Weapons_\(2026\)/season1/
+    TG=$TV/Tale_Gate_\(2026\)/season1/
 
-    sleep 15
+    find $SUMO -type f -exec chmod 664 '{}' \; -exec mv '{}' $YT \;
+    rmdir $SUMO
+    find $YT -name 'CR\ Cool*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CD \;
+    find $YT -name 'C4*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CR \;
+    find $YT -name 'DYW*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $DW \;
+    find $YT -name 'Tale\ Gate*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $TG \;
+
+    sleep 10
     curl -v -X POST \
     -H "Authorization: MediaBrowser Token=\"${JELLYFIN_TOKEN}\"" \
     'https://dvr.crt.lol/Items/34f331a89ce405e2b877d68d5ee4d4a2/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&RegenerateTrickplay=false&ReplaceAllMetadata=false'

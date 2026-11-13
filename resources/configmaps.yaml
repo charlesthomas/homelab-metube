@@ -21,7 +21,7 @@ data:
 
     find $SUMO -type f -exec chmod 664 '{}' \; -exec mv '{}' $YT \;
     rmdir $SUMO
-    find $YT -name 'CR\ Cool*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CD \;
+    find $YT -name '*Cooldown*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CD \;
     find $YT -name 'C4*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $CR \;
     find $YT -name 'DYW*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $DW \;
     find $YT -name 'Tale\ Gate*.mp4' -exec chmod 664 '{}' \; -exec mv '{}' $TG \;
